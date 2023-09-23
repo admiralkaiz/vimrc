@@ -1,40 +1,56 @@
-" =========================
-" My .vimrc configuration
-" Author: kaizaadesuka
-" =========================
+" =============================================================================
+"                                   VIMRC
+" =============================================================================
+"                            BASIC CONFIGURATIONS
+" =============================================================================
 
+" -------------------------------------------------------------- UTF-8 Encoding
 set encoding=utf-8
 scriptencoding utf-8
 
-" === Appearance ===
-syntax on		    " 
-"set termguicolors	"
-set number		    " Show line numbers
-set relativenumber	" Show relative line numbers
-set cursorline		" Show cursorline
+" -------------------------------------------------------------------- Eyecandy
+"set termguicolors
+
+" ------------------------------------------------------------- Numbering stuff
+set number
+set relativenumber
+
+" --------------------------------------------------------- Syntax highlighting
+syntax on
+
+" ----------------------------------------------------------- Lines and cursors
+set cursorline
+set scrolloff=10
 set colorcolumn=80
-set scrolloff=8		" Do not let cursor to above or below 8 lines while scrolling
-set nowrap		    " Disable wrap
 
-" === Indentantion ===
+" ----------------------------------------------------------------- Indentation
 filetype plugin indent on
-set tabstop=4
-set softtabstop=4
-set autoindent		" Automatic
-set expandtab		" Use space characters instead of tabs
+filetype plugin on
+set autoindent
+set smarttab
+set tabstop=8
+set shiftwidth=8
+set breakindent
+set expandtab
 
-" === Keymap ===
+" --------------------------------------------------------- Enable mouse clicks
+set mouse=a
 
-" Bracket autocomplete
+" -------------------------------------------------------- Bracket autocomplete
 inoremap ( ()<Esc>ha
-inoremap { {}<Esc>ha
 inoremap [ []<Esc>ha
+inoremap { {}<Esc>ha
 inoremap ' ''<Esc>ha
+inoremap " ""<Esc>ha
 
-" NerdTree Controls
-nnoremap <C-k> :NERDTreeToggle
+" ----------------------------------------------------------- Clipboard setting
+set clipboard=unnamed,unnamedplus
 
-" === Plugins ===
+nnoremap <C-K> :NERDTreeToggle<cr>
+
+" =============================================================================
+"                       PLUGIN AREA (USING VIM-PLUG)
+" =============================================================================
 call plug#begin()
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree'   " Nerd Tree file browser
 call plug#end()
